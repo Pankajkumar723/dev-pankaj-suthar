@@ -33,7 +33,7 @@ A high-performance, creative developer portfolio built with **React 19**, **Vite
 
 ### 1. Navigate to the project directory:
 ```bash
-cd ~/Desktop/pankaj-suthar-portfolio
+cd ~/Desktop/Dev-Pankaj-suthar
 ```
 
 ### 2. Install dependencies (already installed on this machine):

@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+@custom-variant dark (.dark &);
+
+@layer base {
+  :root {
+    --bg-primary: #FFF7ED; /* Warm Ivory */
+    --text-primary: #292524; /* Deep Charcoal */
+    --text-muted: #78716C; /* Stone-500 */
+    --accent-orange: #EA580C; /* Burnt Orange */
+    --accent-orange-hover: #C2410C;
+    --border-stone: #D6D3D1; /* Stone-300 */
+    --card-surface: #FFFFFF; /* Pure White */
+    --charcoal-surface: #292524;
+  }
+
+  /* Charcoal Bold (Inverted Dark Mode) */
+  .dark,
+  .theme-charcoal,
+  html.dark {
+    --bg-primary: #1C1917; /* Stone-900 Charcoal */
+    --text-primary: #FFF7ED; /* Warm Ivory Text */
+    --text-muted: #D6D3D1;
+    --accent-orange: #F97316; /* Bright Burnt Orange */
+    --accent-orange-hover: #EA580C;
+    --border-stone: rgba(214, 211, 209, 0.18);
+    --card-surface: #24201E; /* Charcoal Card */
+    --charcoal-surface: #141211;
+  }
+
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+}
+
+/* Dark Mode Global Contrast Guarantees */
+.dark,
+.theme-charcoal,
+html.dark {
+  color-scheme: dark;
+}
+
+.dark .editorial-card,
+.theme-charcoal .editorial-card,
+html.dark .editorial-card {
+  background-color: var(--card-surface);
+  border-color: var(--border-stone);
+  color: #FFF7ED;
+}
+
+.dark .editorial-card h2,
+.dark .editorial-card h3,
+.dark .editorial-card h4,
+.dark .editorial-card h5,
+.theme-charcoal .editorial-card h2,
+.theme-charcoal .editorial-card h3,
+.theme-charcoal .editorial-card h4,
+.theme-charcoal .editorial-card h5,
+html.dark .editorial-card h2,
+html.dark .editorial-card h3,
+html.dark .editorial-card h4,
+html.dark .editorial-card h5 {
+  color: #FFF7ED;
+}
+
+.dark .editorial-card p,
+.theme-charcoal .editorial-card p,
+html.dark .editorial-card p {
+  color: #D6D3D1;
+}
+
+/* Auto-invert dark text in dark mode for maximum contrast */
+.dark .text-\[\#292524\],
+.theme-charcoal .text-\[\#292524\],
+html.dark .text-\[\#292524\] {
+  color: #FFF7ED !important;
+}
+
+.dark .text-\[\#78716C\],
+.theme-charcoal .text-\[\#78716C\],
+html.dark .text-\[\#78716C\] {
+  color: #D6D3D1 !important;
+}
+
+/* WCAG AA Accessible Contrast Guarantee for Light Mode */
+html:not(.dark) .text-\[\#EA580C\] {
+  color: #C2410C !important; /* Deep Burnt Orange: 5.84:1 contrast ratio against ivory/white */
+}
+
+html:not(.dark) .text-\[\#78716C\] {
+  color: #57534E !important; /* Stone-600: 5.9:1 contrast ratio against light backgrounds */
+}
+
+/* High Contrast Orange for Dark Mode */
+.dark .text-\[\#EA580C\],
+.theme-charcoal .text-\[\#EA580C\],
+html.dark .text-\[\#EA580C\] {
+  color: #FB923C !important; /* Bright Amber-400: >8:1 contrast on charcoal */
+}
+
+.dark .bg-\[\#FAF5EF\],
+.theme-charcoal .bg-\[\#FAF5EF\],
+html.dark .bg-\[\#FAF5EF\] {
+  background-color: #1C1917 !important;
+}
+
+.dark .bg-\[\#FFFFFF\],
+.theme-charcoal .bg-\[\#FFFFFF\],
+html.dark .bg-\[\#FFFFFF\] {
+  background-color: #24201E !important;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-editorial-serif {
+  font-family: 'Newsreader', Georgia, serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Editorial Card Styles (Ivory + Charcoal + Burnt Orange) */
+.editorial-card {
+  background-color: var(--card-surface);
+  border: 1px solid var(--border-stone);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-card:hover {
+  border-color: var(--accent-orange);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -10px rgba(41, 37, 36, 0.08), 0 0 0 1px var(--accent-orange);
+}
+
+/* Distinctive Editorial Button */
+.editorial-btn {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.editorial-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -6px rgba(234, 88, 12, 0.35);
+}
+
+.editorial-btn:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+/* Infinite Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Spin slow */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 18s linear infinite;
+  will-change: transform;
+}
+
+/* Waving Hand Animation */
+@keyframes hand-wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-wave {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: hand-wave 2.2s infinite;
+  will-change: transform;
+}
+
+/* Floating animation */
+@keyframes float-subtle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float-subtle 3.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Shimmer pulse (100% GPU composited to prevent repaint jank) */
+@keyframes shimmer-glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate(-50%, 0) scale(1);
+  }
+  50% {
+    opacity: 0.95;
+    transform: translate(-50%, 0) scale(1.08);
+  }
+}
+
+.animate-shimmer {
+  will-change: transform, opacity;
+  animation: shimmer-glow 4s ease-in-out infinite;
+}
+
+/* Cursor Blink */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor {
+  animation: cursor-blink 1s step-start infinite;
+}

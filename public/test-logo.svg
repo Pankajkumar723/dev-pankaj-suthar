@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="400" height="400" style="background:#0F1416;">
+  <defs>
+    <!-- Sage / Slate Accent as in Reference Image -->
+    <linearGradient id="sRibbonSage" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#9DB5B2" />
+      <stop offset="50%" stopColor="#829E9A" />
+      <stop offset="100%" stopColor="#6C8783" />
+    </linearGradient>
+
+    <!-- Warm Burnt Orange Alternative for Portfolio Accent -->
+    <linearGradient id="sRibbonOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FB923C" />
+      <stop offset="50%" stopColor="#EA580C" />
+      <stop offset="100%" stopColor="#C2410C" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(0, 0)">
+    <!-- 1. Vertical Serif Stem of 'P' (Pure White) -->
+    <path
+      d="M 35 24.5 
+         H 42.5 
+         V 65.5 
+         H 34.5 
+         C 34.5 63.5 35.8 60 36.8 58.5 
+         V 31.5 
+         C 35.8 30 34.5 26.5 35 24.5 Z"
+      fill="#FFFFFF"
+    />
+
+    <!-- 2. Crescent Detached Bowl of 'P' (Pure White) -->
+    <path
+      d="M 53.5 24.5 
+         C 57 24.5 62.5 28.5 62.5 34.5 
+         C 62.5 39.5 58.5 43 53 43 
+         C 56 39 56.5 30.5 53.5 24.5 Z"
+      fill="#FFFFFF"
+    />
+
+    <!-- 3. Elegant Flowing Ribbon 'S' (Sage Slate / Turquoise Grey) -->
+    <path
+      d="M 29.5 30 
+         C 28 34 29 40.5 33 46 
+         C 37 51 45.5 54 53 56 
+         C 54 59 53 62.5 48.5 65.5 
+         C 51.5 61 51.5 57 47 53.5 
+         C 42 49.5 35 45.5 33 39 
+         C 31.5 35 30 32 29.5 30 Z"
+      fill="url(#sRibbonSage)"
+    />
+  </g>
+</svg>
